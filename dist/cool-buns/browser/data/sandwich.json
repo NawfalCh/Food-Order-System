@@ -1,0 +1,42 @@
+[
+    {
+      "name": "CoolBuns Sandwich",
+      "base_price": 10.5,
+      "kalorien": "123 Kcal",
+      "img_src": "images/sandwich-mit-schinken.jpg",
+      "qty": 1,
+      "brotart": [
+        { "name": "Sesam", "kalorien": "123 Kcal", "preis": 0.0, "selected":false },
+        { "name": "vollkorn", "kalorien": "123 Kcal", "preis": 0.50, "selected":false },
+        { "name": "Sesam Bun", "kalorien": "123 Kcal", "preis": 0.0, "selected":false }
+      ],
+
+      "toppings": [
+        { "name": "Cheddar", "kalorien": "123 Kcal", "preis": 0.5,"qty": 1, "selected":false },
+        { "name": "Gouda", "kalorien": "123 Kcal", "preis": 0.0, "selected":true },
+        { "name": "Tunfisch", "kalorien": "123 Kcal", "preis": 1.5,"qty": 1, "selected":false },
+        { "name": "Paprika", "kalorien": "123 Kcal", "preis": 0.5,"qty": 1, "selected":false },
+        { "name": "Salat", "kalorien": "123 Kcal", "preis": 0.0, "selected":true },
+        { "name": "Gurken", "kalorien": "123 Kcal", "preis": 0.0, "selected":true },
+        { "name": "Tomaten", "kalorien": "123 Kcal", "preis": 0.5,"qty": 1, "selected":false },
+        { "name": "Schinken", "kalorien": "123 Kcal", "preis": 1.0,"qty": 1, "selected":false },
+        { "name": "Salami", "kalorien": "123 Kcal", "preis": 1.0,"qty": 1, "selected":false },
+        { "name": "Jalapenos", "kalorien": "123 Kcal", "preis": 0.5,"qty": 1, "selected":false }
+      ],
+
+      "dressings": [
+        { "name": "Honig", "kalorien": "123 Kcal", "preis": 0.5 },
+        { "name": "Caesar", "kalorien": "123 Kcal", "preis": 0.5 },
+        {
+          "name": "hauseigene Sandwich-Sauce",
+          "kalorien": "123 Kcal",
+          "preis": 0.0
+        },
+        {
+          "name": "hauseigene Spicy-Sauce",
+          "kalorien": "123 Kcal",
+          "preis": 0.5
+        }
+      ]
+    }
+  ]
