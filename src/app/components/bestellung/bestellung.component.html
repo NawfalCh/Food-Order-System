@@ -1,0 +1,138 @@
+
+<!---Menu container--------->
+<div class="root-container">
+  <h3 style="text-align: center">Unsere Menu</h3>
+
+  <div class="card-container">
+    <div class="card" *ngFor="let menu of menus">
+      <img src="{{ menu.img_src }}" />
+
+      <div class="card-content">
+        <h3>{{ menu.name }}</h3>
+        <p>{{ menu.description }}</p>
+
+        <a class="btn" (click)="this.showDialog.showMenu(menu.name)"
+          >Jetzt bestellen</a
+        >
+        <app-menu-dialog
+          *ngIf="this.showDialog.getMenuDialogSatus()"
+        ></app-menu-dialog>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---Burger Sandwich container--------->
+<div class="root-container">
+  <h3 style="text-align: center">Burger und Sandwich</h3>
+
+  <div class="card-container">
+    <div class="card" *ngFor="let burger of burgers">
+      <img src="{{ burger.img_src }}" />
+
+      <div class="card-content">
+        <h3>{{ burger.name }}</h3>
+        <p><span>Preis: </span> {{ burger.base_price | currency: 'EUR' }} </p>
+        <p><span>Kalorien: </span> {{ burger.kalorien }}</p>
+        <a class="btn" (click)="this.showDialog.showBurger(burger.base_price)"
+          >Jetzt bestellen</a
+        >
+        <app-burger-konfig-dialog
+          *ngIf="this.showDialog.getBurgerStatus()"
+        ></app-burger-konfig-dialog>
+      </div>
+    </div>
+
+    <div class="card" *ngFor="let sandwich of sandwiches">
+      <img src="{{ sandwich.img_src }}" />
+
+      <div class="card-content">
+        <h3>{{ sandwich.name }}</h3>
+        <p><span>Preis: </span> {{ sandwich.base_price | currency: 'EUR' }} </p>
+        <p><span>Kalorien: </span>{{ sandwich.kalorien }}</p>
+        <a class="btn" (click)="this.showDialog.showSandwich(sandwich.base_price)">Jetzt bestellen</a>
+        <app-sandwich-konfig-dialog *ngIf="this.showDialog.getSandwichStatus()">
+          
+        </app-sandwich-konfig-dialog>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-------Salat container--------->
+<div class="root-container">
+  <h3 style="text-align: center">Unsere Salat</h3>
+
+  <div class="card-container">
+    <div class="card" *ngFor="let salat of salate">
+      <img src="{{ salat.img_src }}" alt="no foto" />
+
+      <div class="card-content">
+        <h3>{{ salat.name }}</h3>
+        <p><span>Preis: </span>{{ salat.base_price | currency: 'EUR' }} </p>
+        <p><span>Kalorien: </span>{{ salat.kalorien }}</p>
+        <div class="quantity">
+          <p><span>Menge:</span> <span style="font-weight: bold;color: #f82c5b;">{{salat.qty}} </span></p>
+          <div class="quantity-modify">
+            <button (click)="increasItemQuantity(salat)">+</button>
+            <button (click)="decreasItemQuantity(salat)">-</button>
+          </div>
+        </div>
+        <a  class="btn" (click)="addSalatToOrder(salat)">Jetzt bestellen</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-------Getraenk container--------->
+<div class="root-container">
+  <h3 style="text-align: center">Unsere Getraenk</h3>
+
+  <div class="card-container">
+    <div class="card" *ngFor="let getraenk of getraenke">
+      
+      <div class="itm-img" >{{getraenk.name}}</div>
+
+      <div class="card-content">
+        <h3>{{getraenk.name}}</h3>
+        <p><span>Preis: </span>{{getraenk.base_price | currency: 'EUR'}} </p>
+        <p><span>Kalorien: </span>{{getraenk.kalorien}}</p>
+        <div class="quantity">
+          <p><span>Menge: </span> <span style="font-weight: bold;color: #f82c5b;">{{getraenk.qty}}</span></p>
+          <div class="quantity-modify">
+            <button (click)="increasItemQuantity(getraenk)">+</button>
+            <button (click)="decreasItemQuantity(getraenk)">-</button>
+          </div>
+        </div>
+        <a  class="btn" (click)="addGetraenkToOrder(getraenk)" >Jetzt bestellen</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-------Getraenk container--------->
+<div class="root-container">
+  <h3 style="text-align: center">Unsere Beilagen</h3>
+
+  <div class="card-container">
+    <div class="card" *ngFor="let beilage of beilagen">
+      
+      <div class="itm-img" >{{beilage.name}}</div>
+
+      <div class="card-content">
+        <h3>{{beilage.name}}</h3>
+        <p><span>Preis: </span>{{beilage.base_price | currency: 'EUR'}} </p>
+        <p><span>Kalorien: </span>{{beilage.kalorien}}</p>
+        <div class="quantity">
+          <p><span>Menge: </span> <span style="font-weight: bold;color: #f82c5b;">{{beilage.qty}}</span></p>
+          <div class="quantity-modify">
+            <button (click)="increasItemQuantity(beilage)">+</button>
+            <button (click)="decreasItemQuantity(beilage)">-</button>
+          </div>
+        </div>
+        <a  class="btn" (click)="addGetraenkToOrder(beilage)" >Jetzt bestellen</a>
+      </div>
+    </div>
+  </div>
+</div>

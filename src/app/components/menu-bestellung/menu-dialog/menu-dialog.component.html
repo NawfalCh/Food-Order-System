@@ -1,0 +1,181 @@
+<div class="container">
+  <div class="dialog-container">
+    <button class="close-btn" (click)="this.showDialog.closeMenu()" >close</button>
+    <ng-container [ngTemplateOutlet]="currentStep === 1 ? step1 : currentStep === 2 ? step2 : currentStep === 3 ? step3: step4">
+       <!-- Step 1: Burger/Sandwich auswählen -->
+      <ng-template #step1>
+        <div class="container-item">
+          <div *ngIf="this.burger == this.showDialog.getMenuType()">
+            <app-burger (selectedBurger)="setBurger_Sandwich($event)"></app-burger>    
+          </div>
+
+          <div *ngIf="this.sandwich == this.showDialog.getMenuType()">
+            <app-sandwich (selectedSandwich)="setBurger_Sandwich($event)" ></app-sandwich>
+          </div>
+          
+          <div style="flex-direction: row-reverse;" class="container-btn">
+            <button (click)="nextStep()" [class.disabled-button]="!menu.burger_or_sandwich">Next</button>
+          </div>
+        </div>
+
+      </ng-template>
+        <!-- Step 2: Getränk auswählen -->
+      <ng-template #step2>
+        <div class="container-item">
+          <div>
+            <h2 style="text-align: center;color: #f82c5b;"> Wählen Sie Ihre Getränk</h2>
+            <div class="content" *ngFor="let getraenk of getraenke">
+              <label class="custom-checkbox">
+                <input
+                  type="checkbox"
+                  name="set1"
+                  [checked]="getraenk.selected"
+                 (change)="setGetraenk(getraenk)"
+                
+                />
+                <span class="checkmark"></span>
+                {{getraenk.name}} - <span>{{getraenk.base_price | currency: 'EUR'}}</span>
+
+              </label>             
+            </div>
+            
+          </div>
+          <div class="container-btn">
+            <button (click)="prevStep()">zurück</button>
+            <button (click)="nextStep()" [class.disabled-button]="!isSingleDrinkSelected">nächste schritt</button>
+          </div>
+        </div>
+        
+      </ng-template>  
+       <!-- Step 3: beilage auswählen -->
+      <ng-template #step3>
+        <div class="container-item">
+          <div>
+            <h2 style="text-align: center;color: #f82c5b;"> Wählen Sie Ihre Beilage</h2>
+            <div class="content" *ngFor="let beilage of beilagen">
+              <label class="custom-checkbox">
+                <input
+                  type="checkbox"
+                  name="set1"
+                  [checked]="beilage.selected"
+                 (change)="setBeilage(beilage)"
+                
+                />
+                <span class="checkmark"></span>
+                {{beilage.name}} - <span>{{beilage.base_price | currency: 'EUR'}}</span>
+
+              </label>             
+            </div>
+          </div>
+          <div class="container-btn">
+           <button (click)="prevStep()">zurück</button>
+           <button (click)="nextStep()" [class.disabled-button]="!isSingleBeilageSelected">nächste schritt</button>
+          </div>
+        </div>
+      </ng-template>
+      <!-- Step 4: gebastellte Menu -->
+      <ng-template #step4>
+        <div class="container-item">
+          <div>
+           <h2 style="text-align: center;color: #f82c5b;">Zusammenfassung Ihres Menu:</h2>
+           <div class="container-menu">
+             <div *ngIf="menu.burger_or_sandwich.name === 'CoolBuns Burger'">
+               <h3>Burger: {{ menu.burger_or_sandwich.name }} - {{ menu.burger_or_sandwich.total_preis | currency: 'EUR' }} </h3>
+               <ul>
+                 <li>Bun: {{ menu.burger_or_sandwich.buns.name }}</li>
+                 <li>Toppings: 
+                   <span *ngFor="let topping of menu.burger_or_sandwich.toppings">{{ topping.name }} ({{ topping.qty }})  </span>
+                 </li>
+                 <li>Dressings: 
+                  <span *ngFor="let dressing of menu.burger_or_sandwich.dressings">{{ dressing.name }} ({{ dressing.qty }}) </span>
+                 </li>          
+               </ul>
+             </div>
+
+             <div  *ngIf="menu.burger_or_sandwich.name === 'CoolBuns Sandwich'">
+              <h3>Sandwich: {{ menu.burger_or_sandwich.name }} - {{ menu.burger_or_sandwich.total_preis | currency: 'EUR' }} </h3>
+              <ul>
+                <li>Brotart: {{ menu.burger_or_sandwich.brotart.name }}</li>
+                <li>Toppings: 
+                  <span *ngFor="let topping of menu.burger_or_sandwich.toppings">{{ topping.name }} ({{ topping.qty }})  </span>
+                </li>
+                <li>Dressings: 
+                 <span *ngFor="let dressing of menu.burger_or_sandwich.dressings">{{ dressing.name }} ({{ dressing.qty }}) </span>
+                </li>          
+              </ul>
+             </div>
+             <div>
+              <h3>Getraenk: {{this.menu.getraenk.name}} - {{ menu.getraenk.base_price | currency: 'EUR' }} </h3>
+             </div>
+             <div>
+              <h3>Beilage: {{this.menu.beilage.name}} - {{ menu.beilage.base_price | currency: 'EUR' }} </h3>
+             </div>
+             <div style="display: flex; justify-content: space-between;">
+              <div>
+                <p style="font-weight: bolder;"> Original preis - {{this.originalPrice| currency: 'EUR'}}</p>
+                <p style="font-weight: bolder;"> Menu  preis (10% Rabatt) - {{this.menu.total_preis | currency: 'EUR'}}</p>
+              </div>
+              <div class="change-quantity">
+                <button (click)="increasItemQuantity()">+</button>
+                <p>Menge: {{this.menu.qty}}</p>
+                <button (click)="decreasItemQuantity()">-</button>
+              </div>
+              
+             </div>            
+           </div>
+          </div>
+          <div class="container-btn">
+            <button (click)="prevStep()">zurück</button>
+            <button (click)="addMenuToOrder()">in Warenkorb</button>
+          </div>
+        
+        </div>
+      </ng-template>
+
+
+
+    </ng-container >
+
+    
+    
+    
+<!-----
+ *ngIf="this.menu.burger_or_sandwich.name === 'CoolBuns Burger'"
+ *ngIf="this.menu.burger_or_sandwich.name === 'CoolBuns Sandwich'"
+-->
+
+
+  </div>
+</div>
+
+
+
+<!---
+    <p>hier ist der dialog</p>
+
+    <p>hier ist der dialog</p>
+    <p>hier ist der dialog</p>
+    <p>hier ist der dialog</p>
+    <p>hier ist der dialog</p>
+    <p>hier ist der dialog</p>
+    <p>hier ist der dialog</p>
+    <p>hier ist der dialog</p>
+    <div *ngIf="this.burger == this.showDialog.getMenuType()">
+      <p style="color: red">hier ist der dialog</p>
+      <p style="color: red">hier ist der dialog</p>
+      <p style="color: red">hier ist der dialog</p>
+      <p style="color: red">hier ist der dialog</p>
+    </div>
+    <div *ngIf="this.sandwich == this.showDialog.getMenuType()">
+      <p style="color: green">hier ist der dialog</p>
+      <p style="color: green">hier ist der dialog</p>
+      <p style="color: green">hier ist der dialog</p>
+      <p style="color: green">hier ist der dialog</p>
+    </div>
+    <p>hier ist der dialog</p>
+    <p>hier ist der dialog</p>
+    <p>hier ist der dialog</p>
+    <p>hier ist der dialog</p>
+    <p>hier ist der dialog</p>
+    <p>hier ist der dialog</p>
+    --->

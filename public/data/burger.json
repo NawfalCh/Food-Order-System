@@ -1,0 +1,44 @@
+[
+    {
+      "name": "CoolBuns Burger",
+      "base_price": 10.5,
+      "kalorien": "123 Kcal",
+      "img_src": "images/classic-burger.jpg",
+      "qty": 1,
+
+      "buns": [
+        { "name": "klassik Bun", "kalorien": "123 Kcal", "preis": 0.0, "selected":false },
+        { "name": "Black Bun", "kalorien": "123 Kcal", "preis": 0.5, "selected":false },
+        { "name": "Sesam Bun", "kalorien": "123 Kcal", "preis": 0.0, "selected":false }
+      ],
+
+      "toppings": [
+        { "name": "Cheddar", "kalorien": "123 Kcal", "preis": 0.5,"qty": 1, "selected":false },
+        { "name": "Gouda", "kalorien": "123 Kcal", "preis": 0.0, "selected":true },
+        { "name": "Tunfisch", "kalorien": "123 Kcal", "preis": 1.5,"qty": 1, "selected":false },
+        { "name": "Paprika", "kalorien": "123 Kcal", "preis": 0.5,"qty": 1, "selected":false },
+        { "name": "Salat", "kalorien": "123 Kcal", "preis": 0.0, "selected":true },
+        { "name": "Gurken", "kalorien": "123 Kcal", "preis": 0.0, "selected":true },
+        { "name": "Tomaten", "kalorien": "123 Kcal", "preis": 0.5,"qty": 1, "selected":false },
+        { "name": "Jalapenos", "kalorien": "123 Kcal", "preis": 0.5,"qty": 1, "selected":false },
+        { "name": "Plant-Patty", "kalorien": "123 Kcal", "preis": 3.5, "selected":false },
+        { "name": "Rindfleisch-Patty", "kalorien": "123 Kcal", "preis": 2.5,"qty": 1, "selected":false }
+      ],
+
+      "dressings": [
+        { "name": "Mayo", "kalorien": "123 Kcal", "preis": 0.0 },
+        { "name": "Ketchup", "kalorien": "123 Kcal", "preis": 0.0 },
+        { "name": "Senf", "kalorien": "123 Kcal", "preis": 0.0 },
+        {
+          "name": "hauseigene Sandwich-Sauce",
+          "kalorien": "123 Kcal",
+          "preis": 0.0
+        },
+        {
+          "name": "hauseigene Spicy-Sauce",
+          "kalorien": "123 Kcal",
+          "preis": 0.5
+        }
+      ]
+    }
+  ]

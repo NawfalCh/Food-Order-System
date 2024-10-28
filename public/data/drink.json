@@ -1,0 +1,15 @@
+ [
+    { "name": "Cola", "kalorien": "123 Kcal", "base_price": 1.5,"qty": 1, "selected":false },
+    { "name": "Cola Zero", "kalorien": "123 Kcal", "base_price": 1.5,"qty": 1, "selected":false },
+    { "name": "Fanta", "kalorien": "123 Kcal", "base_price": 1.5,"qty": 1, "selected":false },
+    { "name": "Sprite", "kalorien": "123 Kcal", "base_price": 1.5,"qty": 1, "selected":false },
+    { "name": "Bier", "kalorien": "123 Kcal", "base_price": 2.0,"qty": 1, "selected":false },
+    { "name": "alkoholfreies Bier", "kalorien": "123 Kcal", "base_price": 2.0,"qty": 1, "selected":false },
+    { "name": "Orangensaft", "kalorien": "123 Kcal", "base_price": 1.8,"qty": 1, "selected":false },
+    { "name": "Stilles Wasser", "kalorien": "123 Kcal", "base_price": 1.2,"qty": 1, "selected":false },
+    {
+      "name": "Wasser mit Kohlensäure",
+      "kalorien": "123 Kcal",
+      "base_price": 1.2,"qty": 1, "selected":false
+    }
+  ]

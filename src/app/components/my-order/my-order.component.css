@@ -1,0 +1,43 @@
+.btn-delete {
+    background-color: #f82c5b;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  .btn-buy{
+    background-color:rgb(216, 201, 26);
+    color: black;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 18px;
+    width: 150px;
+    
+  }
+  
+  .btn-delete:hover {
+    background-color: rgba(248, 44, 92, 0.559);
+  }
+  .btn-buy:hover{
+    background-color: rgb(216, 201, 26, 0.6);
+
+  }
+
+ ul{
+  list-style-type: none;
+ }
+
+ .item-container{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px;
+  border-color: #f82c5b;
+ }
+ .btn-delete-container{
+  display: flex;
+  align-items: center;
+ }

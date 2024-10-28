@@ -1,0 +1,13 @@
+[
+    {
+      "img_src": "images/burger-Menu.jpg",
+      "name": "CoolBuns Burger Menu",
+      "description": "10% Rabatt auf den Preis"
+    },
+
+    {
+      "img_src": "images/sandwich-Menu.jpg",
+      "name": "CoolBuns Sandwich Menu",
+      "description": "10% Rabatt auf den gesamten Preis"
+    }
+  ]

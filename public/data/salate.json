@@ -1,0 +1,20 @@
+[
+    {
+      "name": "Ceasar Salat",
+      "kalorien": "123 Kcal",
+      "img_src": "images/Ceasar_Salat.jpg",
+      "base_price": 7.5,"qty": 1
+    },
+    {
+      "name": "Italienischer Salat",
+      "kalorien": "123 Kcal",
+      "img_src": "images/Italienische_Salat.jpg",
+      "base_price": 10.0,"qty": 1
+    },
+    {
+      "name": "Bauern Salat",
+      "kalorien": "123 Kcal",
+      "img_src": "images/Bauern_Salat.jpg",
+      "base_price": 8.8,"qty": 1
+    }
+  ]

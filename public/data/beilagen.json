@@ -1,0 +1,5 @@
+[
+    { "name": "Pommes", "kalorien": "123 Kcal", "base_price": 2.0,"qty": 1, "selected":false },
+    { "name": "Reis", "kalorien": "123 Kcal", "base_price": 1.2,"qty": 1, "selected":false },
+    { "name": "Beilagen-Salat", "kalorien": "123 Kcal", "base_price": 3.5,"qty": 1, "selected":false }
+  ]

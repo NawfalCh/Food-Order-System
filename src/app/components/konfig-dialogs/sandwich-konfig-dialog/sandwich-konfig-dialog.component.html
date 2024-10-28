@@ -1,0 +1,92 @@
+
+
+<div class="container">
+    <div class="dialog-container">
+      <button class="close-btn" (click)="this.showDialog.closeSandwich()" >close</button>
+      
+      <h2 style="text-align: center;color: #f82c5b;">define your Sandwich</h2>
+      <form >
+        <div *ngFor="let sandwich of sandwiches">
+          <div [ngClass]="{'konfig': true, 'active': isBunsActive}">
+            <div class="titel" (click)="toggleBunAccordion()"><span>Wähle Brotart</span> <span class="sp-plus">+</span> <span class="sp-minus">_</span></div>
+            <div class="content" *ngFor="let brotart of sandwich.brotart; let i = index">
+              <label class="custom-checkbox">
+                <input
+                  type="checkbox"
+                  name="set1"
+                  [checked]="brotart.selected"
+                 (change)="onBrotSelect(brotart)"
+                
+                />
+              <span class="checkmark"></span>
+              {{ brotart.name }}
+              <span *ngIf="brotart.preis != 0.0"
+                >(+{{ brotart.preis  }} Euro)</span
+              >
+
+              </label>
+            </div>
+          </div>
+  
+          <div [ngClass]="{'konfig': true, 'active': isToppingsActive}">
+            <div class="titel" (click)="toggleToppingAccordion()"><span>Wähle Toppings</span> <span class="sp-plus">+</span> <span class="sp-minus">_</span></div>
+            <div class="content" *ngFor="let topping of sandwich.toppings">
+              <label class="custom-checkbox">
+                <input type="checkbox"
+              [checked]="toppingSelected(topping)"
+              (change)="toggleTopping($event, topping)"
+              />
+              <span class="checkmark"></span>
+              {{ topping.name }}
+              <span *ngIf="topping.preis != 0.0"
+                >(+{{ topping.preis  }} Euro)</span
+              >
+              </label>
+              <div class="change-quantity" *ngIf="toppingSelected(topping) && topping.preis != 0.0">
+                <button class="quantity-button" (click)="increasItemQuantity(topping)">+</button>
+                <p >{{topping.qty}}</p>
+                <button  (click)="decreasItemQuantity(topping)">-</button>
+
+              </div>
+              
+            </div>
+          </div>
+  
+          <div [ngClass]="{'konfig': true, 'active': isDressingActive}">
+            <div class="titel" (click)="toggleDressingAccordion()"><span>Wähle Dressings</span> <span class="sp-plus">+</span> <span class="sp-minus">_</span></div>
+            <div class="content" *ngFor="let dressing of sandwich.dressings">
+              <label class="custom-checkbox">
+                <input type="checkbox"
+              [checked]="dressingSelected(dressing)"
+              (change)="toggleDressing($event, dressing)"
+              />
+              <span class="checkmark"></span>
+              {{ dressing.name }}
+              <span *ngIf="dressing.preis != 0.0"
+                >(+{{ dressing.preis  }} Euro)</span
+              >
+              </label>
+              
+            </div>
+          </div>
+          <div class="add-to-order">
+            <p>Gesamtpreis: {{ totalPrice | currency: 'EUR' }} </p> 
+            
+            <div style="display: flex;flex-direction: row;justify-content: center;align-items: center" >
+              <button class="quantity-button" (click)="increasItemQuantity(sandwich)">+</button>
+              <p >{{sandwich.qty}}</p>
+              <button  (click)="decreasItemQuantity(sandwich)">-</button>
+
+            </div>
+
+            <div>
+            <button style="margin-right: 20px;" [class.disabled-button]="!isSingleBrotSelected"
+             (click)="addToOrder(sandwich)"> in Warenkorb</button>
+            <button  (click)="this.showDialog.closeSandwich()">abrechen</button>
+            </div>
+          </div>
+        </div>
+      </form>
+      
+    </div>
+  </div>

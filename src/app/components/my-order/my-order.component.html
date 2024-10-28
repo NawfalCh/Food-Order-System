@@ -1,0 +1,98 @@
+
+
+
+<h2 >Deine Bestellung</h2>
+
+<ul>
+  <li *ngFor="let order of orderList, let i=index">
+    <div class="item-container">
+
+      <!-- zeige Burger---------------->
+    <div  *ngIf="order.name === 'CoolBuns Burger'">
+      <h3>Burger: {{ order.name }} - {{ order.total_preis | currency: 'EUR' }} </h3>
+      <ul>
+        <li>Bun: {{ order.buns.name }}</li>
+        <li>Toppings: 
+          <span *ngFor="let topping of order.toppings">{{ topping.name }} ({{ topping.qty }})  </span>
+        </li>
+        <li>Dressings: 
+          <span *ngFor="let dressing of order.dressings">{{ dressing.name }} ({{ dressing.qty }}) </span>
+        </li>
+        <li>Menge: {{order.qty}}</li>
+      </ul>
+    </div>
+    <!-- zeige Sandwich----------------->
+    <div  *ngIf="order.name === 'CoolBuns Sandwich'">
+      <h3>Sandwich: {{ order.name }} - {{ order.total_preis | currency: 'EUR' }} </h3>
+      <ul>
+        <li>Brotart: {{ order.brotart.name }}</li>
+        <li>Toppings: 
+          <span *ngFor="let topping of order.toppings">{{ topping.name }} ({{ topping.qty }})  </span>
+        </li>
+        <li>Dressings: 
+          <span *ngFor="let dressing of order.dressings">{{ dressing.name }} ({{ dressing.qty }}) </span>
+        </li>
+        <li>Menge: {{order.qty}}</li>
+      </ul>
+    </div>
+    <!------------------ zeige Menu ------->
+    <div *ngIf="order.name === 'menu'">
+      <!-- zeige Burger Menu ------->
+      <div *ngIf="order.burger_or_sandwich.name === 'CoolBuns Burger'">
+        <h3> CoolBuns Burger Menu - {{order.total_preis | currency: 'EUR'}} - Menge: ({{order.qty}}) </h3>
+        <h4>{{order.burger_or_sandwich.name}}</h4>
+        <ul>
+          <li>Bun: {{order.burger_or_sandwich.buns.name}}</li>
+          <li>Toppings: 
+            <span *ngFor="let topping of order.burger_or_sandwich.toppings"> {{ topping.name }} ({{ topping.qty }})</span>
+          </li>
+          <li>Dressings: 
+            <span *ngFor="let dressing of order.burger_or_sandwich.dressings"> {{ dressing.name }} ({{ dressing.qty }})</span>
+          </li>
+        </ul>
+        <h4>Getraenk: {{order.getraenk.name}} </h4>
+        <h4>Beilage: {{order.beilage.name}} </h4> 
+      </div>
+      <!-- zeige Sandwich Menu ------->
+      <div *ngIf="order.burger_or_sandwich.name === 'CoolBuns Sandwich'">
+        <h3> CoolBuns Sandwich Menu - {{order.total_preis | currency: 'EUR'}} - Menge: ({{order.qty}}) </h3>
+        <h4>{{order.burger_or_sandwich.name}}</h4>
+        <ul>
+          <li>Brotart: {{order.burger_or_sandwich.brotart.name}}</li>
+          <li>Toppings: 
+            <span *ngFor="let topping of order.burger_or_sandwich.toppings"> {{ topping.name }} ({{ topping.qty }})</span>
+          </li>
+          <li>Dressings: 
+            <span *ngFor="let dressing of order.burger_or_sandwich.dressings"> {{ dressing.name }} ({{ dressing.qty }})</span>
+          </li>
+        </ul>
+        <h4>Getraenk: {{order.getraenk.name}} </h4>
+        <h4>Beilage: {{order.beilage.name}} </h4>
+
+      </div>
+
+    </div>
+
+    <div *ngIf="order.name !== 'CoolBuns Burger' && order.name !== 'CoolBuns Sandwich' && order.name !== 'menu'">
+      <h3> {{ order.name }} - {{ order.total_preis | currency: 'EUR' }} - Menge: ({{order.qty}}) </h3>
+      <ul>
+        <li>Kalorien: {{order.kalorien}}</li>  
+      </ul>
+      
+    </div>
+    
+    <div class="btn-delete-container">
+      <button class="btn-delete" (click)="deleteOrder(i)">löchen</button>
+    </div>
+
+
+    </div>
+
+  </li>
+</ul>
+
+<h3>Gesamtpreis: {{ totalPreis | currency: 'EUR' }}</h3>
+
+<div >
+  <button class="btn-buy"  (click)="clear()">kaufen</button>
+</div>
