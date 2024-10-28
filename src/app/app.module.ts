@@ -14,6 +14,7 @@ import { MyOrderComponent } from './components/my-order/my-order.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BurgerComponent } from './components/menu-bestellung/burger/burger.component';
 import { SandwichComponent } from './components/menu-bestellung/sandwich/sandwich.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { SandwichComponent } from './components/menu-bestellung/sandwich/sandwic
     MyOrderComponent,
     BurgerComponent,
     SandwichComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
